@@ -1,0 +1,395 @@
+{
+  "key_positions": [
+    {
+      "position": "P1 自己一步成五",
+      "turn": "X",
+      "note": "黑已有四连，两端任一空点即五连",
+      "expected": [
+        "D8",
+        "I8"
+      ],
+      "results": {
+        "v1 原始版": {
+          "move": "I8",
+          "pass": true,
+          "sec": 0.0007
+        },
+        "v2 优化版": {
+          "move": "D8",
+          "pass": true,
+          "sec": 0.0003
+        },
+        "v3 试验版": {
+          "move": "D8",
+          "pass": true,
+          "sec": 0.0003
+        }
+      }
+    },
+    {
+      "position": "P2 对手一步成五",
+      "turn": "X",
+      "note": "白已有四连，黑不堵就被五连",
+      "expected": [
+        "D8",
+        "I8"
+      ],
+      "results": {
+        "v1 原始版": {
+          "move": "I8",
+          "pass": true,
+          "sec": 0.0007
+        },
+        "v2 优化版": {
+          "move": "D8",
+          "pass": true,
+          "sec": 0.0012
+        },
+        "v3 试验版": {
+          "move": "D8",
+          "pass": true,
+          "sec": 0.0013
+        }
+      }
+    },
+    {
+      "position": "P3 对手活四成点（关键）",
+      "turn": "O",
+      "note": "黑在列上 X X . X，中间一补就是活四；白必须在这一手就化解（占点或先封一端）",
+      "expected": [
+        "F10",
+        "F5",
+        "F7"
+      ],
+      "results": {
+        "v1 原始版": {
+          "move": "G6",
+          "pass": false,
+          "sec": 0.0007
+        },
+        "v2 优化版": {
+          "move": "F7",
+          "pass": true,
+          "sec": 0.0034
+        },
+        "v3 试验版": {
+          "move": "F10",
+          "pass": true,
+          "sec": 0.24
+        }
+      }
+    },
+    {
+      "position": "P4 自己做活四",
+      "turn": "X",
+      "note": "黑在 (7,6) 或 (7,10) 落子成 4 连且两端全空 = 活四，白挡不住",
+      "expected": [
+        "G8",
+        "K8"
+      ],
+      "results": {
+        "v1 原始版": {
+          "move": "G8",
+          "pass": true,
+          "sec": 0.0007
+        },
+        "v2 优化版": {
+          "move": "G8",
+          "pass": true,
+          "sec": 0.0035
+        },
+        "v3 试验版": {
+          "move": "G8",
+          "pass": true,
+          "sec": 0.0021
+        }
+      }
+    },
+    {
+      "position": "P5 跳四必堵",
+      "turn": "X",
+      "note": "白 X X . X X，空隙 (7,7) 一填就是五连",
+      "expected": [
+        "H8"
+      ],
+      "results": {
+        "v1 原始版": {
+          "move": "H8",
+          "pass": true,
+          "sec": 0.0006
+        },
+        "v2 优化版": {
+          "move": "H8",
+          "pass": true,
+          "sec": 0.0011
+        },
+        "v3 试验版": {
+          "move": "H8",
+          "pass": true,
+          "sec": 0.0011
+        }
+      }
+    },
+    {
+      "position": "P6 双活三",
+      "turn": "X",
+      "note": "黑在 (7,7) 同时形成横、竖两条活三",
+      "expected": [
+        "H8"
+      ],
+      "results": {
+        "v1 原始版": {
+          "move": "H8",
+          "pass": true,
+          "sec": 0.0006
+        },
+        "v2 优化版": {
+          "move": "H8",
+          "pass": true,
+          "sec": 0.0037
+        },
+        "v3 试验版": {
+          "move": "H8",
+          "pass": true,
+          "sec": 0.0022
+        }
+      }
+    },
+    {
+      "position": "P7 空盘开局",
+      "turn": "X",
+      "note": "第三手应贴着中心（距离天元 1~2 格的合理范围内）",
+      "expected": [
+        "G10",
+        "G7",
+        "G8",
+        "G9",
+        "H10",
+        "H6",
+        "H7",
+        "H9",
+        "I10",
+        "I7",
+        "I8",
+        "J7",
+        "J9"
+      ],
+      "results": {
+        "v1 原始版": {
+          "move": "H9",
+          "pass": true,
+          "sec": 0.0007
+        },
+        "v2 优化版": {
+          "move": "H9",
+          "pass": true,
+          "sec": 0.0011
+        },
+        "v3 试验版": {
+          "move": "H9",
+          "pass": true,
+          "sec": 0.0921
+        }
+      }
+    }
+  ],
+  "games": [
+    {
+      "pair": "v2 优化版 vs v1 原始版",
+      "a": "v2 优化版",
+      "b": "v1 原始版",
+      "opening": "A 空盘开局",
+      "a_color": "黑",
+      "winner": "X",
+      "outcome_for_a": "胜",
+      "moves": 31,
+      "error": null,
+      "max_step": 0.0048,
+      "sum_step": 0.057
+    },
+    {
+      "pair": "v2 优化版 vs v1 原始版",
+      "a": "v2 优化版",
+      "b": "v1 原始版",
+      "opening": "A 空盘开局",
+      "a_color": "白",
+      "winner": "O",
+      "outcome_for_a": "胜",
+      "moves": 40,
+      "error": null,
+      "max_step": 0.0033,
+      "sum_step": 0.06
+    },
+    {
+      "pair": "v2 优化版 vs v1 原始版",
+      "a": "v2 优化版",
+      "b": "v1 原始版",
+      "opening": "B 中心+斜挂",
+      "a_color": "黑",
+      "winner": "X",
+      "outcome_for_a": "胜",
+      "moves": 29,
+      "error": null,
+      "max_step": 0.0035,
+      "sum_step": 0.051
+    },
+    {
+      "pair": "v2 优化版 vs v1 原始版",
+      "a": "v2 优化版",
+      "b": "v1 原始版",
+      "opening": "B 中心+斜挂",
+      "a_color": "白",
+      "winner": "O",
+      "outcome_for_a": "胜",
+      "moves": 24,
+      "error": null,
+      "max_step": 0.0026,
+      "sum_step": 0.028
+    },
+    {
+      "pair": "v3 试验版 vs v1 原始版",
+      "a": "v3 试验版",
+      "b": "v1 原始版",
+      "opening": "A 空盘开局",
+      "a_color": "黑",
+      "winner": "X",
+      "outcome_for_a": "胜",
+      "moves": 41,
+      "error": null,
+      "max_step": 0.2551,
+      "sum_step": 2.269
+    },
+    {
+      "pair": "v3 试验版 vs v1 原始版",
+      "a": "v3 试验版",
+      "b": "v1 原始版",
+      "opening": "A 空盘开局",
+      "a_color": "白",
+      "winner": "O",
+      "outcome_for_a": "胜",
+      "moves": 40,
+      "error": null,
+      "max_step": 0.2046,
+      "sum_step": 1.931
+    },
+    {
+      "pair": "v3 试验版 vs v1 原始版",
+      "a": "v3 试验版",
+      "b": "v1 原始版",
+      "opening": "B 中心+斜挂",
+      "a_color": "黑",
+      "winner": "O",
+      "outcome_for_a": "负",
+      "moves": 68,
+      "error": null,
+      "max_step": 0.6709,
+      "sum_step": 5.872
+    },
+    {
+      "pair": "v3 试验版 vs v1 原始版",
+      "a": "v3 试验版",
+      "b": "v1 原始版",
+      "opening": "B 中心+斜挂",
+      "a_color": "白",
+      "winner": "O",
+      "outcome_for_a": "胜",
+      "moves": 38,
+      "error": null,
+      "max_step": 0.2315,
+      "sum_step": 1.933
+    },
+    {
+      "pair": "v3 试验版 vs v2 优化版",
+      "a": "v3 试验版",
+      "b": "v2 优化版",
+      "opening": "A 空盘开局",
+      "a_color": "黑",
+      "winner": "O",
+      "outcome_for_a": "负",
+      "moves": 82,
+      "error": null,
+      "max_step": 0.4023,
+      "sum_step": 7.191
+    },
+    {
+      "pair": "v3 试验版 vs v2 优化版",
+      "a": "v3 试验版",
+      "b": "v2 优化版",
+      "opening": "A 空盘开局",
+      "a_color": "白",
+      "winner": "X",
+      "outcome_for_a": "负",
+      "moves": 93,
+      "error": null,
+      "max_step": 0.3163,
+      "sum_step": 7.913
+    },
+    {
+      "pair": "v3 试验版 vs v2 优化版",
+      "a": "v3 试验版",
+      "b": "v2 优化版",
+      "opening": "B 中心+斜挂",
+      "a_color": "黑",
+      "winner": "draw",
+      "outcome_for_a": "平",
+      "moves": 223,
+      "error": null,
+      "max_step": 0.3186,
+      "sum_step": 17.776
+    },
+    {
+      "pair": "v3 试验版 vs v2 优化版",
+      "a": "v3 试验版",
+      "b": "v2 优化版",
+      "opening": "B 中心+斜挂",
+      "a_color": "白",
+      "winner": "X",
+      "outcome_for_a": "负",
+      "moves": 39,
+      "error": null,
+      "max_step": 0.2209,
+      "sum_step": 2.432
+    }
+  ],
+  "tally": {
+    "v2 优化版": {
+      "games": 8,
+      "win": 7,
+      "draw": 1,
+      "loss": 0,
+      "moves": 561,
+      "max_step": 0.4023,
+      "sum_step": 35.508
+    },
+    "v1 原始版": {
+      "games": 8,
+      "win": 1,
+      "draw": 0,
+      "loss": 7,
+      "moves": 311,
+      "max_step": 0.6709,
+      "sum_step": 12.201
+    },
+    "v3 试验版": {
+      "games": 8,
+      "win": 3,
+      "draw": 1,
+      "loss": 4,
+      "moves": 624,
+      "max_step": 0.6709,
+      "sum_step": 47.317
+    }
+  },
+  "self_play": [
+    {
+      "opening": "A 空盘开局",
+      "winner": "draw",
+      "moves": 225
+    },
+    {
+      "opening": "B 中心+斜挂",
+      "winner": "O",
+      "moves": 46
+    }
+  ]
+}
