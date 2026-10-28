@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 冒烟测试与对局导出的临时产物
+lab/results/_smoke_record.txt
+*.log
+
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
